@@ -1,0 +1,30 @@
+<!-- This example is the same as file 1-createElement-without-jsx.html, but using jsx. --> 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example using JSX</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <link rel="stylesheet" href="./styles/style.css">
+        <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script><!-- Import react --> 
+        <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script><!-- Import react dom -->
+        <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script><!-- Import babel is javascript compiler -->
+        <script type="text/babel">
+            const element = (
+                <>
+                    <div className='container'>
+                        <h1 className='title'>
+                            Hello world
+                        </h1>
+                        <span className='author'>
+                            By: David Acero
+                        </span>
+                    </div>
+                </>
+            )// Create element
+            ReactDOM.render(element, document.getElementById('root')) // Rendering element
+        </script>
+    </body>
+</html>
+

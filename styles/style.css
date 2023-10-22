@@ -1,0 +1,33 @@
+body{
+    background-color: #010101;
+    color: #FFF;
+    font-size: 22px;
+}
+
+.container {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #D0D0D0;
+    box-shadow: 0 0 8px #D0D0D0;
+    background-color: #131417;
+    border-radius: 20px;
+}
+
+h1{
+    background-color: transparent;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0 0 14px 0;
+    padding: 14px 15px 10px 15px;
+}
+
+span{
+    padding: 14px 15px 10px 15px;
+    margin: 0 0 14px 0;
+}
+
+button{
+    border-radius: 20px;
+    padding: 10px;
+    padding: 10px;
+}

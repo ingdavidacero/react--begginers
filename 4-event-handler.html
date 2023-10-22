@@ -1,0 +1,45 @@
+<!-- This example is to show event handler using state --> 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example event handler</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <link rel="stylesheet" href="./styles/style.css">
+        <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script><!-- Import react --> 
+        <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script><!-- Import react dom -->
+        <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script><!-- Import babel is javascript compiler -->
+        <script type="text/babel">
+            const rootElement = document.getElementById('root')
+            
+            function App() {
+                const [count, setCount] = React.useState(0) // Initialize state to count
+                const [username, setUsername] = React.useState('') // Initialize state to username
+                
+                function handleClick() { //function event handler when the user clic the button
+                    setCount(count + 1)
+                }
+
+                function handleChange(event) { //function event handler when the user type the input
+                    setUsername(event.target.value)
+                }
+
+                return (
+                    <div>
+                        <p>You have pressed the button {count} times.</p>
+                        <p>
+                            <button onClick={handleClick}>Click Me</button>
+                        </p>
+                        <p>You typed: {username}</p>
+                        <p>
+                            <input onChange={handleChange} />
+                        </p>
+                    </div>
+                )// return element
+            }
+
+            ReactDOM.render(<App />, document.getElementById('root'))// Rendering element
+        </script>
+    </body>
+</html>

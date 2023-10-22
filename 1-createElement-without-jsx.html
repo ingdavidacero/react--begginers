@@ -1,0 +1,38 @@
+<!-- This example uses react without the use of jsx to understand how react works. --> 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example without JSX</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <link rel="stylesheet" href="./styles/style.css">
+        <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script><!-- Import react --> 
+        <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script><!-- Import react dom --> 
+        <script type="text/javascript">
+            const rootElement = document.getElementById('root') // Get element root to render
+            const element = React.createElement('div', {
+                className: 'container',
+                children: [
+                    React.createElement(
+                        'h1',
+                        {
+                            className: 'title',
+                            key:'1',
+                            children: 'Hello world'
+                        }
+                    ),
+                    React.createElement(
+                        'span',
+                        {
+                            className: 'author',
+                            key:'2',
+                            children: 'By: David Acero'
+                        }
+                    )
+                ]
+            }) // Create react element
+            ReactDOM.render(element, rootElement) // Render element
+        </script>
+    </body>
+</html>

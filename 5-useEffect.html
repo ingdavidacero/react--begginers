@@ -1,0 +1,48 @@
+<!-- This example is to show useEffect hook --> 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example useEffect</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <link rel="stylesheet" href="./styles/style.css">
+        <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script><!-- Import react --> 
+        <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script><!-- Import react dom -->
+        <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script><!-- Import babel is javascript compiler -->
+        <script type="text/babel">
+            function useLocalStorageState(key, defaultValue = '') {
+                const [state, setState] = React.useState(
+                    () => window.localStorage.getItem(key) || defaultValue,//Using lazy function because after that first render, we don’t need to read into localStorage
+                )// Initialize state to name using localStorage
+
+                React.useEffect(() => {
+                    window.localStorage.setItem(key, state)
+                }, [key, state])
+
+                return [state, setState]
+            }
+
+            function Greeting() {
+                const [name, setName] = useLocalStorageState('name') // Custom function to useLocalStorage
+
+                React.useEffect(() => { // This function will be called every time the greeting component is rendered.
+                    window.localStorage.setItem('name', name)
+                },[name]) // useEffect is always going to be called on the initial mount
+
+                const handleChange = event => setName(event.target.value) //function event handler when the user type the input
+
+                return (
+                    <div>
+                        <form>
+                            <label htmlFor="name">Name: </label>
+                            <input value={name} onChange={handleChange} id="name" />
+                        </form>
+                        {name ? <strong>Hello {name}</strong> : 'Please type your name'}
+                    </div>
+                )// return element
+            }
+            ReactDOM.render(<Greeting />, document.getElementById('root')) // Rendering element
+        </script>
+    </body>
+</html>
